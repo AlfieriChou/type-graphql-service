@@ -749,7 +749,7 @@ diff@3.5.0, diff@^3.1.0, diff@^3.2.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/diff/-/diff-3.5.0.tgz#800c0dd1e0a8bfbc95835c202ad220fe317e5a12"
 
-dir_filenames@^1.0.6:
+dir_filenames@1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/dir_filenames/-/dir_filenames-1.0.6.tgz#e5f71d625fc7f8f38e444333d6b0cbf8b3406dba"
   dependencies:

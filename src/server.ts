@@ -2,12 +2,21 @@ import 'reflect-metadata'
 import { ApolloServer } from 'apollo-server-express'
 import * as Express from 'express'
 import { buildSchema } from 'type-graphql'
-import { HelloResolver } from './resolvers/hello'
 import * as path from 'path'
+import * as dir from 'dir_filenames'
+
+const resolvers: Function[] = []
+const files: string[] = dir(path.resolve(__dirname, 'resolvers'))
+files.map(file => {
+  const funcs: Object = require(file)
+  for(let i in funcs) {
+    resolvers.push(funcs[i])
+  }
+})
 
 const main = async () => {
   const schema = await buildSchema({
-    resolvers: [HelloResolver],
+    resolvers: resolvers,
     emitSchemaFile: path.resolve(__dirname, 'schema/schema.gql')
   })
 

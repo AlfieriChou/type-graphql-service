@@ -7,6 +7,14 @@ type Hello {
   result: String!
 }
 
+input HelloInput {
+  result: String!
+}
+
+type Mutation {
+  hehe(input: HelloInput!): Hello!
+}
+
 type Query {
   hello: Hello!
 }

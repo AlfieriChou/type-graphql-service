@@ -1,5 +1,5 @@
-import { Resolver, Query } from 'type-graphql'
-import { Hello } from '../model/hello'
+import { Resolver, Query, Mutation, Arg } from 'type-graphql'
+import { Hello, HelloInput } from '../model/hello'
 
 @Resolver()
 export class HelloResolver {
@@ -8,5 +8,10 @@ export class HelloResolver {
     return {
       result: 'Hello World!'
     }
+  }
+
+  @Mutation(() => Hello)
+  async hehe(@Arg('input') helloInput: HelloInput): Promise<Hello> {
+    return helloInput
   }
 }

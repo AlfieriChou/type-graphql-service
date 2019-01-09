@@ -8,7 +8,7 @@ import * as path from 'path'
 const main = async () => {
   const schema = await buildSchema({
     resolvers: [HelloResolver],
-    emitSchemaFile: path.resolve(__dirname, 'schema/hello.gql')
+    emitSchemaFile: path.resolve(__dirname, 'schema/schema.gql')
   })
 
   const apolloServer = new ApolloServer({ schema })

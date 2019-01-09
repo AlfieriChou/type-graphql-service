@@ -9,7 +9,7 @@ const resolvers: Function[] = []
 const files: string[] = dir(path.resolve(__dirname, 'resolvers'))
 files.map(file => {
   const funcs: Object = require(file)
-  for(let i in funcs) {
+  for (let i in funcs) {
     resolvers.push(funcs[i])
   }
 })
@@ -20,7 +20,15 @@ const main = async () => {
     emitSchemaFile: path.resolve(__dirname, 'schema/schema.gql')
   })
 
-  const apolloServer = new ApolloServer({ schema })
+  const apolloServer = new ApolloServer({
+    schema,
+    formatError: err => {
+      return {
+        message: err.message,
+        extensions: err.extensions
+      }
+    }
+  })
 
   const app = Express()
 

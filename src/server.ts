@@ -4,6 +4,7 @@ import * as Express from 'express'
 import { buildSchema } from 'type-graphql'
 import * as path from 'path'
 import * as dir from 'dir_filenames'
+import { config } from './config'
 
 const resolvers: Function[] = []
 const files: string[] = dir(path.resolve(__dirname, 'resolvers'))
@@ -34,8 +35,8 @@ const main = async () => {
 
   apolloServer.applyMiddleware({ app })
 
-  app.listen(4000, () => {
-    console.log('server started on http://localhost:4000/graphql')
+  app.listen(config.port, () => {
+    console.log(`server started on http://localhost:${config.port}/graphql`)
   })
 }
 

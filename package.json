@@ -10,8 +10,8 @@
     "type": "git",
     "url": "git+https://github.com/AlfieriChou/type-graphql-service.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["typescript", "graphql", "express"],
+  "author": "AlfieriChou",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/AlfieriChou/type-graphql-service/issues"

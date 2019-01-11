@@ -2,7 +2,6 @@ import { Resolver, Query, Mutation, Arg } from 'type-graphql'
 import { Demo, DemoInput } from '../model/hello'
 import { BaseResolver } from '../common/base_resolvers'
 import { PaginationInput } from '../model/pagination'
-import { HelloService } from '../service/hello'
 
 @Resolver()
 export class HelloResolver extends BaseResolver {
@@ -18,7 +17,6 @@ export class HelloResolver extends BaseResolver {
     @Arg('filters', { nullable: true }) filters?: DemoInput,
     @Arg('pagination', { nullable: true }) pagination?: PaginationInput
   ): Promise<Demo[] | [] | undefined> {
-    const data = await new HelloService().index(filters, pagination)
-    return data
+    return await this.service.hello.index(filters, pagination)
   }
 }

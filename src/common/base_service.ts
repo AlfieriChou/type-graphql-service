@@ -1,6 +1,5 @@
 import { config } from '../config'
 import { Config, Mysql } from '../typing/config'
-import * as knex from 'knex'
 import { KnexConfig } from '../typing/common'
 
 const mysql: Mysql = config.mysql
@@ -26,6 +25,6 @@ export class BaseService {
   knex: any
   constructor() {
     this.config = config
-    this.knex = knex(knexConfig)
+    this.knex = require('knex')(knexConfig)
   }
 }

@@ -1,31 +1,23 @@
-import { config } from '../config'
-import { Config, Mysql } from '../typing/config'
-import * as knex from 'knex'
-import { KnexConfig } from '../typing/common'
+import * as dir from 'dir_filenames'
+import * as path from 'path'
 
-const mysql: Mysql = config.mysql
-const knexConfig: KnexConfig = {
-  client: 'mysql',
-  connection: {
-    host: mysql.host,
-    user: mysql.username,
-    password: mysql.password,
-    database: mysql.database,
-    supportBigNumbers: true,
-    charset: 'utf8mb4',
-    connectTimeout: 15000
-  },
-  pool: {
-    min: 2,
-    max: 10
-  }
-}
+const services: string[] = dir(path.resolve(__dirname, '../service'))
 
 export class BaseResolver {
-  config: Config
-  knex: any
+  service: any
   constructor() {
-    this.config = config
-    this.knex = knex(knexConfig)
+    this.service = this._getService()
+  }
+  _getService () {
+    let service: Object
+    service = {}
+    services.map(file => {
+      const items: Object = require(file)
+      for (let item in items) {
+        const name: string = item.replace(/\Service/, '').toLocaleLowerCase()
+        service[name] = require(file)[item].prototype
+      }
+    })
+    return service
   }
 }

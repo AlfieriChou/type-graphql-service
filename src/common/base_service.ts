@@ -21,7 +21,7 @@ const knexConfig: KnexConfig = {
   }
 }
 
-export class BaseResolver {
+export class BaseService {
   config: Config
   knex: any
   constructor() {

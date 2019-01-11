@@ -1,23 +1,24 @@
 import { Resolver, Query, Mutation, Arg } from 'type-graphql'
-import { Hello, HelloInput } from '../model/hello'
+import { Demo, DemoInput } from '../model/hello'
 import { BaseResolver } from '../common/base_resolvers'
-import { PaginationInput } from '../model/pagination';
+import { PaginationInput } from '../model/pagination'
+import { HelloService } from '../service/hello'
 
 @Resolver()
 export class HelloResolver extends BaseResolver {
-  @Query(() => Hello)
+  @Query(() => Demo)
   async hello() {
     return {
       result: 'Hello World!'
     }
   }
 
-  @Mutation(() => Hello)
+  @Mutation(() => Demo)
   async hehe(
-    @Arg('input') helloInput: HelloInput,
-    @Arg('pagination', { nullable: true }) paginationInput?: PaginationInput
-  ): Promise<Hello> {
-    console.log('------>', paginationInput)
-    return helloInput
+    @Arg('filters', { nullable: true }) filters?: DemoInput,
+    @Arg('pagination', { nullable: true }) pagination?: PaginationInput
+  ): Promise<Demo[] | []> {
+    const data = await new HelloService().index(filters, pagination)
+    return data
   }
 }

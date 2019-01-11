@@ -3,16 +3,24 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
-type Hello {
-  result: String!
+# The javascript `Date` as string. Type represents date and time as the ISO Date string.
+scalar DateTime
+
+type Demo {
+  id: Int!
+  text: String!
+  title: String!
+  created_at: DateTime!
+  uodated_at: DateTime!
+  deleted_at: DateTime!
 }
 
-input HelloInput {
-  result: String!
+input DemoInput {
+  text: String!
 }
 
 type Mutation {
-  hehe(pagination: PaginationInput, input: HelloInput!): Hello!
+  hehe(pagination: PaginationInput, filters: DemoInput): Demo!
 }
 
 input PaginationInput {
@@ -21,5 +29,5 @@ input PaginationInput {
 }
 
 type Query {
-  hello: Hello!
+  hello: Demo!
 }

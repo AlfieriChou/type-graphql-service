@@ -13,11 +13,11 @@ export class HelloResolver extends BaseResolver {
     }
   }
 
-  @Mutation(() => Demo)
+  @Mutation(() => [Demo] || [])
   async hehe(
     @Arg('filters', { nullable: true }) filters?: DemoInput,
     @Arg('pagination', { nullable: true }) pagination?: PaginationInput
-  ): Promise<Demo[] | []> {
+  ): Promise<Demo[] | [] | undefined> {
     const data = await new HelloService().index(filters, pagination)
     return data
   }

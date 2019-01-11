@@ -7,12 +7,12 @@
 scalar DateTime
 
 type Demo {
-  id: Int!
-  text: String!
-  title: String!
-  created_at: DateTime!
-  uodated_at: DateTime!
-  deleted_at: DateTime!
+  id: Int
+  text: String
+  title: String
+  created_at: DateTime
+  updated_at: DateTime
+  deleted_at: DateTime
 }
 
 input DemoInput {
@@ -20,7 +20,7 @@ input DemoInput {
 }
 
 type Mutation {
-  hehe(pagination: PaginationInput, filters: DemoInput): Demo!
+  hehe(pagination: PaginationInput, filters: DemoInput): [Demo!]!
 }
 
 input PaginationInput {

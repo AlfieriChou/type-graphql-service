@@ -2,22 +2,22 @@ import { ObjectType, Field, InputType, Int } from 'type-graphql'
 
 @ObjectType()
 export class Demo {
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
   id?: number
 
-  @Field()
+  @Field({ nullable: true })
   text?: string
 
-  @Field()
+  @Field({ nullable: true })
   title?: string
 
-  @Field(() => Date)
+  @Field(() => Date, { nullable: true })
   created_at?: Date
 
-  @Field(() => Date)
-  uodated_at?: Date
+  @Field(() => Date, { nullable: true })
+  updated_at?: Date
 
-  @Field()
+  @Field({ nullable: true })
   deleted_at?: Date
 }
 

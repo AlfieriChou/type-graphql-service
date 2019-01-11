@@ -12,7 +12,12 @@ input HelloInput {
 }
 
 type Mutation {
-  hehe(input: HelloInput!): Hello!
+  hehe(pagination: PaginationInput, input: HelloInput!): Hello!
+}
+
+input PaginationInput {
+  page: Int!
+  size: Int!
 }
 
 type Query {

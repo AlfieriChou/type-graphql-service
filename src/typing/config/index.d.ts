@@ -6,7 +6,7 @@ export interface Config {
   tracing: Boolean
 }
 
-interface Mysql {
+export interface Mysql {
   host: string
   port: number
   username: string

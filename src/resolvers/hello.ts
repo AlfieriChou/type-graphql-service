@@ -1,8 +1,9 @@
 import { Resolver, Query, Mutation, Arg } from 'type-graphql'
 import { Hello, HelloInput } from '../model/hello'
+import { BaseResolver } from '../common/base_resolvers'
 
 @Resolver()
-export class HelloResolver {
+export class HelloResolver extends BaseResolver {
   @Query(() => Hello)
   async hello() {
     return {

@@ -1,8 +1,8 @@
 import { PaginationInput } from '../model/pagination'
-import { DemoInput, Demo } from '../model/hello'
+import { DemoInput, Demo } from '../model/demo'
 import { BaseService } from '../common/base_service'
 
-export class HelloService extends BaseService {
+export class DemoService extends BaseService {
   async index(
     filters: DemoInput = new DemoInput(),
     pagination: PaginationInput = new PaginationInput()

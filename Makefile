@@ -1,5 +1,5 @@
 #########################################
-version = "0.0.1"
+version = "0.0.2"
 image = "alfierichou/type-service"
 imageId = docker images 'type-service' | uniq
 
@@ -8,7 +8,7 @@ build:
 
 clean:
 	@echo "force clear this docker image..."
-	@docker rmi --f $(imageId)
+	@docker rmi --force $(imageId)
 
 tag:
 	@echo "make tag this docker image..."

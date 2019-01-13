@@ -29,5 +29,5 @@ input PaginationInput {
 }
 
 type Query {
-  hello: Demo!
+  Demo: Demo!
 }

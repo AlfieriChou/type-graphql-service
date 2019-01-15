@@ -23,7 +23,7 @@ const main = async () => {
 
   const apolloServer = new ApolloServer({
     schema,
-    tracing: true,
+    tracing: false,
     formatError: err => {
       return {
         message: err.message,

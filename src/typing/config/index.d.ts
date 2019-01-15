@@ -3,7 +3,6 @@ export interface Config {
   appRoot?: string
   port: number
   mysql: Mysql
-  tracing: Boolean
 }
 
 export interface Mysql {

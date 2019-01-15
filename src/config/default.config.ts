@@ -8,6 +8,5 @@ export const config: Config = {
     username: 'lvyang',
     password: 'zhazhayang',
     database: 'test'
-  },
-  tracing: true
+  }
 }

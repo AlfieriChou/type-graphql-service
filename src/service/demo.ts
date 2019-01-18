@@ -15,10 +15,11 @@ export class DemoService extends BaseService {
     const data = await sql
     return data
   }
-  async show(
-    id: number
-  ): Promise<Demo> {
-    const demo: Demo = await this.knex('demo').whereNull('deleted_at').where('id', id).first()
+  async show(id: number): Promise<Demo> {
+    const demo: Demo = await this.knex('demo')
+      .whereNull('deleted_at')
+      .where('id', id)
+      .first()
     if (!demo) throw new Error('该信息不存在')
     return demo
   }

@@ -7,9 +7,7 @@ import { DemoService } from '../service/demo'
 @Resolver()
 export class DemoResolver extends BaseResolver {
   @Query(() => Demo)
-  async demoShow(
-    @Arg('id') id: number
-  ): Promise<Demo> {
+  async demoShow(@Arg('id') id: number): Promise<Demo> {
     return await new DemoService().show(id)
   }
 

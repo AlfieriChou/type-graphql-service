@@ -13,4 +13,5 @@ export class EntityService {
   public config: Config
   public knex: Knex
   public paginate(count: number, page: number, size: number): Paginate
+  public error(code: number, message: string): void
 }

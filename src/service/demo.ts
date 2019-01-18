@@ -26,7 +26,7 @@ export class DemoService extends BaseService {
       .whereNull('deleted_at')
       .where('id', id)
       .first()
-    if (!demo) throw new Error('该信息不存在')
+    if (!demo) this.error(404, '该信息不存在')
     return demo
   }
 }

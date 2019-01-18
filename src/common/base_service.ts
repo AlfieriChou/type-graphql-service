@@ -3,6 +3,7 @@ import { Config } from '../typings/config'
 import knex from '../database'
 import * as Knex from 'knex'
 import { EntityService, Paginate } from '../typings/common'
+import { ApiErrorException } from './exception'
 
 export class BaseService implements EntityService {
   config: Config
@@ -18,5 +19,8 @@ export class BaseService implements EntityService {
       row_count: count,
       page_count: Math.ceil(count / size)
     }
+  }
+  public error(code: number, message: string): void {
+    throw new ApiErrorException(message, code)
   }
 }

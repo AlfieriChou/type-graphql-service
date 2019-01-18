@@ -6,12 +6,12 @@ import { DemoService } from '../service/demo'
 
 @Resolver()
 export class DemoResolver extends BaseResolver {
-  @Query(() => Demo)
+  @Query(() => Demo || undefined)
   async demoShow(@Arg('id') id: number): Promise<Demo> {
     return await new DemoService().show(id)
   }
 
-  @Query(() => [Demo] || [])
+  @Query(() => [Demo] || [] || undefined)
   async demoList(
     @Arg('filters', { nullable: true }) filters?: DemoInput,
     @Arg('pagination', { nullable: true }) pagination?: PaginationInput

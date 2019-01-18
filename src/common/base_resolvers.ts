@@ -8,7 +8,7 @@ export class BaseResolver {
   constructor() {
     this.service = this._getService()
   }
-  _getService () {
+  _getService() {
     let service: Object
     service = {}
     services.map(file => {

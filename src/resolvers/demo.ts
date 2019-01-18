@@ -4,7 +4,6 @@ import { BaseResolver } from '../common/base_resolvers'
 import { PaginationInput } from '../model/pagination'
 import { DemoService } from '../service/demo'
 
-
 @Resolver()
 export class DemoResolver extends BaseResolver {
   @Query(() => Demo)

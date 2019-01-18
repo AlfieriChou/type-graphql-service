@@ -1,4 +1,4 @@
-import { Config } from '../typing/config'
+import { Config } from '../typings/config'
 
 export const config: Config = {
   port: 4000,

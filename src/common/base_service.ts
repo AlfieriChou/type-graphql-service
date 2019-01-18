@@ -1,30 +1,13 @@
 import { config } from '../config'
-import { Config, Mysql } from '../typing/config'
-import { KnexConfig } from '../typing/common'
-
-const mysql: Mysql = config.mysql
-const knexConfig: KnexConfig = {
-  client: 'mysql',
-  connection: {
-    host: mysql.host,
-    user: mysql.username,
-    password: mysql.password,
-    database: mysql.database,
-    supportBigNumbers: true,
-    charset: 'utf8mb4',
-    connectTimeout: 15000
-  },
-  pool: {
-    min: 2,
-    max: 10
-  }
-}
+import { Config } from '../typings/config'
+import knex from '../database'
+import * as Knex from 'knex'
 
 export class BaseService {
   config: Config
-  knex: any
+  knex: Knex
   constructor() {
     this.config = config
-    this.knex = require('knex')(knexConfig)
+    this.knex = knex
   }
 }

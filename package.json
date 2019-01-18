@@ -34,6 +34,7 @@
     "typescript": "3.2.2"
   },
   "dependencies": {
+    "@types/knex": "^0.15.1",
     "apollo-server-express": "2.3.1",
     "class-validator": "0.9.1",
     "dir_filenames": "1.0.6",

@@ -19,15 +19,12 @@ input DemoInput {
   text: String!
 }
 
-type Mutation {
-  hehe(pagination: PaginationInput, filters: DemoInput): [Demo!]!
-}
-
 input PaginationInput {
   page: Int!
   size: Int!
 }
 
 type Query {
-  Demo: Demo!
+  demoShow(id: Float!): Demo!
+  demoList(pagination: PaginationInput, filters: DemoInput): [Demo!]!
 }

@@ -10,7 +10,13 @@ export class DemoService extends BaseService {
     const sql = this.knex('demo').whereNull('deleted_at')
     if (filters.text) sql.where('text', 'like', `%${filters.text}%`)
     if (pagination) {
-      console.log('----->', pagination)
+      const countSql = sql.clone()
+      const { count } = await countSql.count('* as count').first()
+      sql.offset((pagination.page - 1) * pagination.size).limit(pagination.size)
+      const result = await sql
+      const paginate = this.paginate(count, pagination.page, pagination.size)
+      console.log('----->', paginate)
+      return result
     }
     const data = await sql
     return data

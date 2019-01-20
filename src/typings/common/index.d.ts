@@ -1,8 +1,7 @@
 import { Config } from '../config'
 import * as Knex from 'knex'
-import simple from 'graphql-query-complexity/dist/estimators/simple';
 
-export interface Paginate{
+export interface Paginate {
   page: number
   size: number
   row_count: number

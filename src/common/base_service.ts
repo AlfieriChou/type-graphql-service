@@ -2,7 +2,7 @@ import { config } from '../config'
 import { Config } from '../typings/config'
 import knex from '../database'
 import * as Knex from 'knex'
-import { EntityService, Paginate } from '../typings/common'
+import { EntityService, Paginate } from '../typings'
 import { ApiErrorException } from './exception'
 
 export class BaseService implements EntityService {

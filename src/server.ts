@@ -6,6 +6,8 @@ import * as path from 'path'
 import * as dir from 'dir_filenames'
 import { config } from './config'
 
+const statusMonitor = require('express-status-monitor')()
+
 const resolvers: Function[] = []
 const files: string[] = dir(path.resolve(__dirname, 'resolvers'))
 files.map(file => {
@@ -34,6 +36,8 @@ const main = async () => {
 
   const app = Express()
 
+  app.use(statusMonitor)
+  app.get('/status', statusMonitor.pageRoute)
   apolloServer.applyMiddleware({ app })
 
   app.listen(config.port, () => {

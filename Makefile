@@ -1,7 +1,7 @@
 #########################################
-version = "0.0.2"
 image = "alfierichou/type-service"
 imageId = docker images 'type-service' | uniq
+version := $(shell git log -1 --pretty=format:"%h")
 
 build:
 	@docker build -t $(image) .
@@ -9,6 +9,10 @@ build:
 clean:
 	@echo "force clear this docker image..."
 	@docker rmi --force $(imageId)
+
+gittag:
+	@echo "git tag..."
+	@npm run postpublish
 
 tag:
 	@echo "make tag this docker image..."

@@ -1,4 +1,4 @@
-FROM docker.io/node:8.15-alpine
+FROM docker.io/node:8.17-alpine
 
 RUN mkdir /home/type-service
 
